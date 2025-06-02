@@ -23,7 +23,7 @@ function addIdea(){
         ideasListSub.innerHTML = "";
         ideaList.forEach(displayIdeas);
     }
-    
+    clearIdeaEntry()
 };
 
 function Idea(idea, desc){
@@ -48,6 +48,11 @@ function displayIdeas(currentItem){
     const ideasListSub = document.getElementById("idea-subcontainer");
     ideasListSub.appendChild(li)
 
+};
+
+function clearIdeaEntry(){
+    document.getElementById("ideaname-entry").value = "";
+    document.getElementById("ideadesc-entry").value="";
 };
 
 
