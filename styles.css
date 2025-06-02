@@ -125,6 +125,7 @@ main {
 .idea-item{
     all: unset;
     display: flex;
+    justify-content: space-between;
     background-color: var(--base-text);
     font-weight: 600;
     color: var(--base-color);
@@ -135,4 +136,25 @@ main {
 }
 .idea-item:hover{
     background-color: var(--base-text-h);
+}
+
+.status-select-notstarted{
+    background-color: #C1C4C8;
+    color: #585454;
+    border-radius: 15px;
+}
+.status-select-interested{
+    background-color: #F0E8AC;
+    color: #D08700;
+    border-radius: 15px;
+}
+.status-select-developing{
+    background-color: #A7CBDD;
+    color: #0084FF;
+    border-radius: 15px;
+}
+.status-select-completed{
+    background-color: #A0E288;
+    color: #0A8812;
+    border-radius: 15px;
 }
