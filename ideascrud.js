@@ -47,6 +47,10 @@ function displayIdeas(currentItem){
 
     //Split elements seperate
 
+    //left
+    const leftDiv = document.createElement("div");
+    leftDiv.className = "idea-li-left";
+
     //Idea Name
     const ideanameP = document.createElement("p");
     ideanameP.textContent = currentItem.title;
@@ -54,6 +58,14 @@ function displayIdeas(currentItem){
     //Idea Desc
     const ideadescP = document.createElement("p");
     ideadescP.textContent = currentItem.detail;
+
+    leftDiv.appendChild(ideanameP);
+    leftDiv.appendChild(ideadescP);
+
+    //right
+    const rightDiv = document.createElement("div");
+    rightDiv.className = "idea-li-right";
+
 
     //Idea Status
     //Create element (dropdown)
@@ -84,11 +96,27 @@ function displayIdeas(currentItem){
         statusColor(ideastatus.value);
     });
 
+    //delete button
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = "idea-delete-button";
+    deleteBtn.innerHTML = "&times;";
+
+    //remove the list item from DOM and remove item (by getting index) from ideaList array
+    deleteBtn.addEventListener("click", () =>{
+        li.remove();
+        const index = ideaList.indexOf(currentItem);
+        if(index > -1){
+            ideaList.splice(index, 1);
+        };
+    });
+
+    rightDiv.appendChild(ideastatus);
+    rightDiv.appendChild(deleteBtn);
 
     //add to li
-    li.appendChild(ideanameP);
-    li.appendChild(ideadescP);
-    li.appendChild(ideastatus);
+    li.appendChild(leftDiv);
+    li.appendChild(rightDiv);
+    
 
     //add li to idea subcontainer
     const ideasListSub = document.getElementById("idea-subcontainer");
