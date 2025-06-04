@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thinknote</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <main>
+            <h3 id="idea-title" class="detail-subtitle"></h2>
+            <div class="detail-container">
+                <div class="row1">
+                    <div class="detail-desc-container">
+                        <h3>Description</h3>
+                        <p id="detailed-desc"></p>
+                    </div>
+                    <!---select status dropdown-->
+                    <div class="detailed-type-project">
+                        <h3>Type</h3>
+                        <p id="detailed-type"></p>
+                    </div>
+                </div>
+                <div class="row2">
+                    <div class="detailed-tech-stack">
+                        <h3>Tech Stack</h3>
+                        <p id="detailed-ts"></p>
+                    </div>
+                    <div class="detailed-duration">
+                        <h3>Duration</h3>
+                        <p id="detailed-dur"></p>
+                    </div>
+                </div>
+                <div class="row3">
+                    <button id="btn-generate-prompt">Get help to develop this with a prompt <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-80q-26 0-47-12.5T400-126q-33 0-56.5-23.5T320-206v-142q-59-39-94.5-103T190-590q0-121 84.5-205.5T480-880q121 0 205.5 84.5T770-590q0 77-35.5 140T640-348v142q0 33-23.5 56.5T560-126q-12 21-33 33.5T480-80Zm-80-126h160v-36H400v36Zm0-76h160v-38H400v38Zm-8-118h58v-108l-88-88 42-42 76 76 76-76 42 42-88 88v108h58q54-26 88-76.5T690-590q0-88-61-149t-149-61q-88 0-149 61t-61 149q0 63 34 113.5t88 76.5Zm88-162Zm0-38Z"/></svg></button>
+                </div>
+            </div>
+    
+        
+        </main>
+        <script src="ideadetails.js"></script>
+        </body>
+</html>

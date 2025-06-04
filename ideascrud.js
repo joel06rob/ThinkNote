@@ -140,6 +140,16 @@ function displayIdeas(currentItem){
             ideastatus.classList.add("status-select-completed");
         };
     };
+
+    //when idea item is pressed open a detailed window view. (Save item to session storage)
+    li.addEventListener("click", function(){
+        sessionStorage.setItem("currentIdea", JSON.stringify(currentItem));
+        window.location.href = "idea.html";
+    });
+    
+    //ensure when status dropdown or delete button is pressed that it doesnt open a page.
+    ideastatus.addEventListener("click", e => e.stopPropagation());
+    deleteBtn.addEventListener("click", e => e.stopPropagation());
 };
 
 function clearIdeaEntry(){

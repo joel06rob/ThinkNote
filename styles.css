@@ -197,3 +197,39 @@ main {
     color: white;
     padding: 0;
 }
+
+/*----------------------------------------------------------------*/
+/*idea page detailed view*/
+.detail-container{
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 600px;
+    max-width: 1000px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+.row1{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.row2{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.row3{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+#btn-generate-prompt{
+    display: flex;
+    align-items: center;
+}
