@@ -1,6 +1,7 @@
 
-//Idea list
-const ideaList = [];
+//Idea list (Load previous)
+const ideaList = JSON.parse(localStorage.getItem("ideas")) || [];
+ideaList.forEach(displayIdeas);
 
 //Adding a project item
 function addIdea(){
@@ -37,6 +38,8 @@ function Idea(idea, desc){
             detail: this.ideaDesc,
             state: this.ideaState
         });
+        //Save idea to local storage
+        localStorage.setItem("ideas", JSON.stringify(ideaList));
     };
 };
 
@@ -106,7 +109,10 @@ function displayIdeas(currentItem){
         li.remove();
         const index = ideaList.indexOf(currentItem);
         if(index > -1){
+            //removes idea element from array (1 = only remove 1 item)
             ideaList.splice(index, 1);
+            //update local storage
+            localStorage.setItem("ideas", JSON.stringify(ideaList));
         };
     });
 
