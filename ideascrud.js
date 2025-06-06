@@ -97,6 +97,8 @@ function displayIdeas(currentItem){
     ideastatus.addEventListener("change", function(){
         currentItem.state = ideastatus.value;
         statusColor(ideastatus.value);
+        localStorage.setItem("ideas", JSON.stringify(ideaList));
+
     });
 
     //delete button

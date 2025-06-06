@@ -200,6 +200,12 @@ main {
 
 /*----------------------------------------------------------------*/
 /*idea page detailed view*/
+.detail-container-outer{
+    display: flex;
+    gap: 489px;
+    max-height: 40px;
+    align-items: center;
+}
 #back-button{
     background: none;
     border: none;
@@ -248,4 +254,10 @@ main {
 #btn-generate-prompt{
     display: flex;
     align-items: center;
+}
+#btn-save{
+    display: none;
+}
+#detailed-type-select{
+    display: none;
 }
