@@ -81,7 +81,7 @@ function displayIdeas(currentItem){
         option.value = optionText;
         option.textContent = optionText;
 
-        //Check if currentItem (title, detail and ->(state)) matches the one of the state options in the select.
+        //Check if currentItem (title, detail, ->(state)<-) matches the one of the state options in the select.
         if(optionText === currentItem.state){
             //set the selected option to true
             option.selected = true;

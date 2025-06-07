@@ -20,10 +20,25 @@ function displayIdeaElements(){
     document.getElementById("detailed-desc").textContent = getIdea.detail;
 
     const backBtn = document.getElementById("back-button");
-    const ideaStateDetail = document.getElementById("detailed-ideastate").textContent = getIdea.state;
+    const ideaStateDetail = document.getElementById("detailed-ideastate");
     const editBtn = document.getElementById("btn-edit");
     const saveBtn = document.getElementById("btn-save");
 
+
+    const statusOptions2 = ["Not Started", "Interested", "Developing", "Completed"];
+    //for each option call function(arrow) with param (optionText)
+    statusOptions2.forEach((optionText)=>{
+        const option = document.createElement("option");
+        option.value = optionText;
+        option.textContent = optionText;
+
+        if(optionText === getIdea.state){
+            option.selected  = true;
+        }
+        ideaStateDetail.appendChild(option);
+    });
+
+    
 
     //TODO: Add catch when user tries to exit without saving (if in edit mode?)
     backBtn.addEventListener("click", ()=>{

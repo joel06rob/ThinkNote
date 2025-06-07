@@ -3,8 +3,9 @@
 :root{
    --base-color: #D9D9D9;
    --base-text: #1D2733;
-   --base-text-h:#2e3e52;
+   --base-text-h:#c9c9c9;
    --secondary-color: #EEEEEE;
+   --third-color: #f5f5f5;
    
 
 }
@@ -142,9 +143,9 @@ main {
     
     display: flex;
     justify-content: space-between;
-    background-color: var(--base-text);
+    background-color: var(--third-color);
     font-weight: 600;
-    color: var(--base-color);
+    color: var(--base-text);
     list-style: none;
     padding: 15px;
     padding-top: 0px;
@@ -172,21 +173,25 @@ main {
     background-color: #C1C4C8;
     color: #585454;
     border-radius: 15px;
+    border-color: #424242;
 }
 .status-select-interested{
     background-color: #F0E8AC;
     color: #D08700;
     border-radius: 15px;
+    border-color: #a16900;
 }
 .status-select-developing{
     background-color: #A7CBDD;
     color: #0084FF;
     border-radius: 15px;
+    border-color: #004585;
 }
 .status-select-completed{
     background-color: #A0E288;
     color: #0A8812;
     border-radius: 15px;
+    border-color: #0b5a00;
 }
 
 .idea-delete-button{
@@ -194,7 +199,7 @@ main {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: white;
+    color: var(--base-text);
     padding: 0;
 }
 
