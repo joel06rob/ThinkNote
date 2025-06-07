@@ -25,11 +25,33 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
     tsOptions = ["HTML", "CSS", "Javascript", "Python", "Java", "C++", "C#", "Go", "R", "Rust", "SQL", "Kotlin", "Swift", "pHp", "Ruby", "C", "Lua", "Dart"];
     tsSelected = [];
 
+
+    addTsBtn.addEventListener("click", function addTechStack(){
+        if (!editing) return;
+                addTsSelect.style.display = "inline";
+                
+
+                //clear previous options.
+                addTsSelect.innerHTML = "";
+                
+                //add functionality here where if the tech is already selected (in array) then dont display it again.
+                tsOptions.forEach(tsOption => {
+                    const tsOp = document.createElement("option");
+                    tsOp.value = tsOption;
+                    tsOp.textContent = tsOption;
+                    addTsSelect.appendChild(tsOp);
+                });
+                
+
+    });
+
     addTsSelect.addEventListener("change", ()=>{
+        if(!editing) return;
                     tsSelected.push(addTsSelect.value);
                     console.log(tsSelected);
                     tsP.textContent = tsSelected;
-                });
+    });
+    
 
     const statusOptions2 = ["Not Started", "Interested", "Developing", "Completed"];
     //for each option call function(arrow) with param (optionText)
@@ -109,23 +131,6 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
             addTsBtn.style.display = "inline";
             
             
-            
-            addTsBtn.addEventListener("click", function addTechStack(){
-                addTsSelect.style.display = "inline";
-
-                //clear previous options.
-                addTsSelect.innerHTML = "";
-                
-                //add functionality here where if the tech is already selected (in array) then dont display it again.
-                tsOptions.forEach(tsOption => {
-                    const tsOp = document.createElement("option");
-                    tsOp.value = tsOption;
-                    tsOp.textContent = tsOption;
-                    addTsSelect.appendChild(tsOp);
-                });
-                
-
-            });
             
         }
     };
