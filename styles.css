@@ -179,19 +179,19 @@ main {
     background-color: #F0E8AC;
     color: #D08700;
     border-radius: 15px;
-    border-color: #a16900;
+    border-color: #ffbd43;
 }
 .status-select-developing{
     background-color: #A7CBDD;
     color: #0084FF;
     border-radius: 15px;
-    border-color: #004585;
+    border-color: #2897ff;
 }
 .status-select-completed{
     background-color: #A0E288;
     color: #0A8812;
     border-radius: 15px;
-    border-color: #0b5a00;
+    border-color: #36aa00;
 }
 
 .idea-delete-button{
@@ -264,5 +264,16 @@ main {
     display: none;
 }
 #detailed-type-select{
+    display: none;
+}
+
+#add-ts{
+    display: none;
+    border: none;
+}
+#add-ts svg{
+    fill: var(--base-text);
+}
+#add-ts-select{
     display: none;
 }

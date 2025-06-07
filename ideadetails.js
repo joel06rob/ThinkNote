@@ -1,18 +1,13 @@
+
+
 let editing = false;
 
-const getIdea = JSON.parse(sessionStorage.getItem("currentIdea"));
-console.log(getIdea);
-if(getIdea != null){
-    displayIdeaElements();
-}
-else{
-    window.location.href = "index.html";
-    //history.back();
-};
+const ideaList = JSON.parse(localStorage.getItem("ideas")) || [];
+const getIdeaIndex = parseInt(sessionStorage.getItem("currentIdeaIndex", 10));
 
 
-
-function displayIdeaElements(){
+if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
+    const getIdea = ideaList[getIdeaIndex];
 
     document.getElementById("idea-title").textContent = getIdea.title;
     const detailContainer = document.getElementById("detail-container");
@@ -20,10 +15,21 @@ function displayIdeaElements(){
     document.getElementById("detailed-desc").textContent = getIdea.detail;
 
     const backBtn = document.getElementById("back-button");
-    const ideaStateDetail = document.getElementById("detailed-ideastate");
+    const ideaStatusDetail = document.getElementById("detailed-ideastate");
     const editBtn = document.getElementById("btn-edit");
     const saveBtn = document.getElementById("btn-save");
+    const addTsBtn = document.getElementById("add-ts");
+    const tsP = document.getElementById("detailed-ts");
+    const addTsSelect = document.getElementById("add-ts-select");
 
+    tsOptions = ["HTML", "CSS", "Javascript", "Python", "Java", "C++", "C#", "Go", "R", "Rust", "SQL", "Kotlin", "Swift", "pHp", "Ruby", "C", "Lua", "Dart"];
+    tsSelected = [];
+
+    addTsSelect.addEventListener("change", ()=>{
+                    tsSelected.push(addTsSelect.value);
+                    console.log(tsSelected);
+                    tsP.textContent = tsSelected;
+                });
 
     const statusOptions2 = ["Not Started", "Interested", "Developing", "Completed"];
     //for each option call function(arrow) with param (optionText)
@@ -35,10 +41,36 @@ function displayIdeaElements(){
         if(optionText === getIdea.state){
             option.selected  = true;
         }
-        ideaStateDetail.appendChild(option);
+        ideaStatusDetail.appendChild(option);
+        
+    });
+    statusColor(ideaStatusDetail.value);
+
+    //change status of idea and save to localstorage
+    ideaStatusDetail.addEventListener("change", ()=>{
+        getIdea.state = ideaStatusDetail.value;
+        ideaList[getIdeaIndex] = getIdea;
+        localStorage.setItem("ideas", JSON.stringify(ideaList));
+        statusColor(ideaStatusDetail.value);
     });
 
-    
+    function statusColor(currentStatus){
+        
+        ideaStatusDetail.className = "";
+
+        if(currentStatus === "Not Started"){
+            ideaStatusDetail.classList.add("status-select-notstarted");  
+        }
+        else if(currentStatus === "Interested"){
+            ideaStatusDetail.classList.add("status-select-interested");
+        }
+        else if(currentStatus === "Developing"){
+            ideaStatusDetail.classList.add("status-select-developing");
+        }
+        else if(currentStatus === "Completed"){
+            ideaStatusDetail.classList.add("status-select-completed");
+        };
+    };
 
     //TODO: Add catch when user tries to exit without saving (if in edit mode?)
     backBtn.addEventListener("click", ()=>{
@@ -59,6 +91,7 @@ function displayIdeaElements(){
     function editState(editing){
         if(editing === true){
             
+            //(Description) replace <p> with textarea with <p>'s contents
             const detailEl = document.getElementById("detailed-desc");
             const currentTxt = detailEl.textContent;
             
@@ -70,7 +103,29 @@ function displayIdeaElements(){
             saveBtn.style.display = "inline";
             editBtn.style.display = "none";
             
+            //(Tech Stack) TODO: Fix Issue with displaying tech stack on second save.
+        
+            //tsP.textContent = "";
+            addTsBtn.style.display = "inline";
             
+            
+            
+            addTsBtn.addEventListener("click", function addTechStack(){
+                addTsSelect.style.display = "inline";
+
+                //clear previous options.
+                addTsSelect.innerHTML = "";
+                
+                //add functionality here where if the tech is already selected (in array) then dont display it again.
+                tsOptions.forEach(tsOption => {
+                    const tsOp = document.createElement("option");
+                    tsOp.value = tsOption;
+                    tsOp.textContent = tsOption;
+                    addTsSelect.appendChild(tsOp);
+                });
+                
+
+            });
             
         }
     };
@@ -78,6 +133,8 @@ function displayIdeaElements(){
     
     //save
     function saveState(){
+
+        //(Description)
         const inp = document.getElementById("detailed-desc");
         const updated = inp.value;
 
@@ -90,8 +147,21 @@ function displayIdeaElements(){
 
         saveBtn.style.display = "none";
         editBtn.style.display = "inline";
-        
+
+        //(Tech Stack)
+        addTsBtn.style.display = "none";
+        addTsSelect.style.display = "none";
         
         editing = false;
     };
+}
+else{
+    window.location.href = "index.html";
+    //history.back();
 };
+
+
+
+
+
+    

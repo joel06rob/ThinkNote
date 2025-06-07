@@ -151,7 +151,8 @@ function displayIdeas(currentItem){
 
     //when idea item is pressed open a detailed window view. (Save item to session storage)
     li.addEventListener("click", function(){
-        sessionStorage.setItem("currentIdea", JSON.stringify(currentItem));
+        const ideaindex = ideaList.indexOf(currentItem);
+        sessionStorage.setItem("currentIdeaIndex", ideaindex);
         window.location.href = "idea.html";
     });
     
