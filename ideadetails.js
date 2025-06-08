@@ -15,11 +15,15 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
     document.getElementById("detailed-desc").textContent = getIdea.detail;
 
     const backBtn = document.getElementById("back-button");
+
+    const typeP = document.getElementById("detailed-type");
+    const typeSelect = document.getElementById("detailed-type-select");
+
     const ideaStatusDetail = document.getElementById("detailed-ideastate");
     const editBtn = document.getElementById("btn-edit");
     const saveBtn = document.getElementById("btn-save");
     const addTsBtn = document.getElementById("add-ts");
-    const tsP = document.getElementById("detailed-ts");
+    const tsUl = document.getElementById("detailed-ts");
     const addTsSelect = document.getElementById("add-ts-select");
 
     tsOptions = ["HTML", "CSS", "Javascript", "Python", "Java", "C++", "C#", "Go", "R", "Rust", "SQL", "Kotlin", "Swift", "pHp", "Ruby", "C", "Lua", "Dart"];
@@ -45,12 +49,50 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
 
     });
 
+    //amended 08/06/25 - change techstack elements to <li> for more structure.
     addTsSelect.addEventListener("change", ()=>{
         if(!editing) return;
-                    tsSelected.push(addTsSelect.value);
-                    console.log(tsSelected);
-                    tsP.textContent = tsSelected;
+
+        const selectedTs = addTsSelect.value;
+        if(!tsSelected.includes(selectedTs)){
+            tsSelected.push(addTsSelect.value);
+            //console.log(tsSelected);
+            renderTechStack();
+        };
+        
+                    
+
     });
+    function renderTechStack(){
+        //clear ul and re render for new entries
+        tsUl.innerHTML = "";
+        tsSelected.forEach((tsSelectedElement, index) =>{
+                        
+            const tsLi = document.createElement("li");
+            tsLi.className = "ts-element";
+                        
+            //p
+            const tsP = document.createElement("p");
+            tsP.textContent = tsSelectedElement;
+            //del btn
+            const tsDelBtn = document.createElement("button");
+            tsDelBtn.className = "ts-element-delete";
+            tsDelBtn.innerHTML = "&times;";
+
+            
+            //delete ts and re render the li elements of tsSelected
+            tsDelBtn.addEventListener("click", ()=>{
+                tsSelected.splice(index, 1);
+                renderTechStack();
+            });
+                        
+            tsLi.appendChild(tsP);
+            tsLi.appendChild(tsDelBtn);
+
+            tsUl.appendChild(tsLi);
+        });
+    };
+    
     
 
     const statusOptions2 = ["Not Started", "Interested", "Developing", "Completed"];
@@ -125,9 +167,11 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
             saveBtn.style.display = "inline";
             editBtn.style.display = "none";
             
-            //(Tech Stack) TODO: Fix Issue with displaying tech stack on second save.
+            
+            typeP.style.display = "none";
+            typeSelect.style.display = "inline";
         
-            //tsP.textContent = "";
+           
             addTsBtn.style.display = "inline";
             
             
@@ -157,6 +201,12 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
         addTsBtn.style.display = "none";
         addTsSelect.style.display = "none";
         
+        //(Type)
+        typeP.textContent = typeSelect.value;
+        typeSelect.style.display = "none";
+        typeP.style.display = "inline";
+
+
         editing = false;
     };
 }
