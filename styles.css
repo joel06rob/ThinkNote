@@ -232,6 +232,7 @@ main {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    gap: 0.3rem;
     min-width: 600px;
     max-width: 1000px;
     padding-left: 1rem;
@@ -243,6 +244,9 @@ main {
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
+}
+#detailed-desc{
+    font-family: 'Instrument Sans', 'sans-serif';
 }
 .row2{
     display: flex;
@@ -263,13 +267,30 @@ main {
 #btn-save{
     display: none;
 }
+.detailed-type-project{
+    display: flex;
+    flex-direction: column;
+    align-items:end;
+}
+
 #detailed-type-select{
     display: none;
 }
-
+#detailed-type{
+    margin: 0;
+}
+.detailed-tech-stack{
+    display: flex;
+    flex-direction: column;
+}
+.detailed-ts-container{
+    display: flex;
+    align-items: center;
+}
 #add-ts{
     display: none;
     border: none;
+    padding: 0;
 }
 #add-ts svg{
     fill: var(--base-text);
@@ -279,9 +300,12 @@ main {
 }
 #detailed-ts{
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
+    max-width: 350px;
     gap: 0.3rem;
     padding: 0;
+    margin-top: 2px;
 }
 .ts-element{
     display: flex;
@@ -307,4 +331,19 @@ main {
     border: none;
     color: var(--base-color);
     padding: 0;
+}
+
+.detailed-duration{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+#duration-input{
+    max-width: 2.5rem;
+    
+}
+#detailed-dur{
+    margin: 0;
+    max-width: 5rem;
+    
 }

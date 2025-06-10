@@ -19,6 +19,8 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
     const typeP = document.getElementById("detailed-type");
     const typeSelect = document.getElementById("detailed-type-select");
 
+    
+
     const ideaStatusDetail = document.getElementById("detailed-ideastate");
     const editBtn = document.getElementById("btn-edit");
     const saveBtn = document.getElementById("btn-save");
@@ -58,6 +60,7 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
             tsSelected.push(addTsSelect.value);
             //console.log(tsSelected);
             renderTechStack();
+            addTsSelect.style.display = "none";
         };
         
                     
@@ -167,14 +170,23 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
             saveBtn.style.display = "inline";
             editBtn.style.display = "none";
             
-            
+            //type
             typeP.style.display = "none";
             typeSelect.style.display = "inline";
         
-           
+           //techstack
             addTsBtn.style.display = "inline";
             
-            
+            //duration
+            const durationP = document.getElementById("detailed-dur");
+            durationP.style.display = "none";
+
+            const durationInput = document.createElement("input");
+            durationInput.id = "duration-input"
+            durationInput.style.display = "inline";
+
+            durationP.parentNode.insertBefore(durationInput, durationP.nextSibling);
+
             
         }
     };
@@ -206,6 +218,20 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
         typeSelect.style.display = "none";
         typeP.style.display = "inline";
 
+        //(Duration)
+        const inp2 = document.getElementById("duration-input");
+        const durP = document.getElementById("detailed-dur");
+        
+        if(inp2.value ==""){
+            inp2.parentNode.replaceChild(durP, inp2);
+            durP.style.display = "inline";
+        }
+        else{
+            durP.textContent = inp2.value;
+            inp2.parentNode.replaceChild(durP, inp2);
+            durP.style.display = "inline";
+        };
+        inp2.remove();
 
         editing = false;
     };
