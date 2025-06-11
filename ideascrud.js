@@ -36,7 +36,10 @@ function Idea(idea, desc){
         ideaList.push({
             title: this.ideaName,
             detail: this.ideaDesc,
-            state: this.ideaState
+            state: this.ideaState,
+            type: "",
+            tech: [],
+            duration: ""
         });
         //Save idea to local storage
         localStorage.setItem("ideas", JSON.stringify(ideaList));

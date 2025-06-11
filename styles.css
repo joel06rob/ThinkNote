@@ -259,6 +259,11 @@ main {
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
+}.row4{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 #btn-generate-prompt{
     display: flex;
@@ -346,4 +351,9 @@ main {
     margin: 0;
     max-width: 5rem;
     
+}
+#p-generate-prompt{
+    
+    flex-wrap: wrap;
+    max-width: 600px;
 }

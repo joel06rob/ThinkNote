@@ -9,10 +9,9 @@ const getIdeaIndex = parseInt(sessionStorage.getItem("currentIdeaIndex", 10));
 if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
     const getIdea = ideaList[getIdeaIndex];
 
-    document.getElementById("idea-title").textContent = getIdea.title;
-    const detailContainer = document.getElementById("detail-container");
-    const detailDescContainer = document.getElementById("detailed-desc-container");
-    document.getElementById("detailed-desc").textContent = getIdea.detail;
+    tsOptions = ["HTML", "CSS", "Javascript", "Python", "Java", "C++", "C#", "Go", "R", "Rust", "SQL", "Kotlin", "Swift", "pHp", "Ruby", "C", "Lua", "Dart"];
+    tsSelected = [];
+
 
     const backBtn = document.getElementById("back-button");
 
@@ -28,8 +27,29 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
     const tsUl = document.getElementById("detailed-ts");
     const addTsSelect = document.getElementById("add-ts-select");
 
-    tsOptions = ["HTML", "CSS", "Javascript", "Python", "Java", "C++", "C#", "Go", "R", "Rust", "SQL", "Kotlin", "Swift", "pHp", "Ruby", "C", "Lua", "Dart"];
-    tsSelected = [];
+    const genPromptBtn = document.getElementById("btn-generate-prompt");
+
+    //preload elements
+    document.getElementById("idea-title").textContent = getIdea.title;
+    const detailContainer = document.getElementById("detail-container");
+    const detailDescContainer = document.getElementById("detailed-desc-container");
+    document.getElementById("detailed-desc").textContent = getIdea.detail;
+    if(getIdea.type !== ""){
+        
+        document.getElementById("detailed-type").textContent = getIdea.type;
+    }
+    if(getIdea.duration !== ""){
+        
+        document.getElementById("detailed-dur").textContent = getIdea.duration;
+    }
+
+    const getTechStackItems = getIdea.tech;
+    if(Array.isArray(getTechStackItems) && getTechStackItems.length > 0){
+        for(i=0;i<getTechStackItems.length;i++){
+            tsSelected.push(getTechStackItems[i])
+        };
+        renderTechStack();
+    };
 
 
     addTsBtn.addEventListener("click", function addTechStack(){
@@ -58,7 +78,7 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
         const selectedTs = addTsSelect.value;
         if(!tsSelected.includes(selectedTs)){
             tsSelected.push(addTsSelect.value);
-            //console.log(tsSelected);
+
             renderTechStack();
             addTsSelect.style.display = "none";
         };
@@ -86,6 +106,10 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
             //delete ts and re render the li elements of tsSelected
             tsDelBtn.addEventListener("click", ()=>{
                 tsSelected.splice(index, 1);
+                getIdea.tech = [...tsSelected];
+                console.log(getIdea.tech);
+                ideaList[getIdeaIndex] = getIdea;
+                localStorage.setItem("ideas", JSON.stringify(ideaList));
                 renderTechStack();
             });
                         
@@ -152,6 +176,8 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
         saveState();
         
     });
+
+
 
 
     //STC (Subject To Chance) - Tag each element (thats editable) with a 'editable' class tag and loop through them (saves time instead of individually getting elements).
@@ -233,8 +259,23 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
         };
         inp2.remove();
 
+        //save to localStorage
+        getIdea.detail = newP.textContent;
+        getIdea.type = typeP.textContent;
+        getIdea.tech = [...tsSelected];
+        getIdea.duration = durP.textContent;
+
+        ideaList[getIdeaIndex] = getIdea;
+        localStorage.setItem("ideas", JSON.stringify(ideaList));
+
         editing = false;
     };
+
+    genPromptBtn.addEventListener("click", () =>{
+        const genPromptP = document.getElementById("p-generate-prompt");
+        const genPromptText = `Create me a plan for a ${getIdea.type} project called ${getIdea.title}. The purpose of the project is ${getIdea.detail} and it will be developed in ${getIdea.tech} with a time scope of ${getIdea.duration} days.`
+        genPromptP.textContent = genPromptText;
+    });
 }
 else{
     window.location.href = "index.html";
