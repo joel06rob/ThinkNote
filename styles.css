@@ -162,7 +162,22 @@ main {
     display: flex;
     gap: 1rem;
     align-items: center;
+    
 }
+.idea-li-left-desc{
+    max-width: 350px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.idea-li-left-name {
+    max-width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
 .idea-li-right{
     display: flex;
     gap: 1rem;

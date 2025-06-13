@@ -60,10 +60,12 @@ function displayIdeas(currentItem){
     //Idea Name
     const ideanameP = document.createElement("p");
     ideanameP.textContent = currentItem.title;
+    ideanameP.className = "idea-li-left-name";
 
     //Idea Desc
     const ideadescP = document.createElement("p");
     ideadescP.textContent = currentItem.detail;
+    ideadescP.className = "idea-li-left-desc";
 
     leftDiv.appendChild(ideanameP);
     leftDiv.appendChild(ideadescP);

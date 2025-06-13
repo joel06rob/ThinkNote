@@ -9,7 +9,7 @@ const getIdeaIndex = parseInt(sessionStorage.getItem("currentIdeaIndex", 10));
 if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
     const getIdea = ideaList[getIdeaIndex];
 
-    tsOptions = ["HTML", "CSS", "Javascript", "Python", "Java", "C++", "C#", "Go", "R", "Rust", "SQL", "Kotlin", "Swift", "pHp", "Ruby", "C", "Lua", "Dart"];
+    tsOptions = ["Select","HTML", "CSS", "Javascript", "Python", "Java", "C++", "C#", "Go", "R", "Rust", "SQL", "Kotlin", "Swift", "pHp", "Ruby", "C", "Lua", "Dart"];
     tsSelected = [];
 
 
@@ -272,9 +272,17 @@ if(!isNaN(getIdeaIndex) && ideaList[getIdeaIndex]){
     };
 
     genPromptBtn.addEventListener("click", () =>{
-        const genPromptP = document.getElementById("p-generate-prompt");
-        const genPromptText = `Create me a plan for a ${getIdea.type} project called ${getIdea.title}. The purpose of the project is ${getIdea.detail} and it will be developed in ${getIdea.tech} with a time scope of ${getIdea.duration} days.`
-        genPromptP.textContent = genPromptText;
+        
+        if(getIdea.type === "" || getIdea.duration === "" || tsSelected.length == 0){
+            alert("Please fill in all fields first!")
+        }
+        else{
+            const genPromptP = document.getElementById("p-generate-prompt");
+            const genPromptText = `Create me a plan for a ${getIdea.type} project called ${getIdea.title}. The purpose of the project is ${getIdea.detail} and it will be developed in ${getIdea.tech} with a time scope of ${getIdea.duration} days.`
+            genPromptP.textContent = genPromptText;
+        }
+        
+        
     });
 }
 else{
