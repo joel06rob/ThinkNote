@@ -1,3 +1,27 @@
+//Darkmode
+let darkmode = localStorage.getItem("darkmode");
+const darkmodeBtn = document.getElementById("btn-darkmode");
+
+
+
+function enableDarkmode(){
+    document.documentElement.classList.add("darkmode");
+    localStorage.setItem("darkmode","active");
+};
+function disableDarkmode(){
+    document.documentElement.classList.remove("darkmode");
+    localStorage.setItem("darkmode", null);
+};
+
+
+darkmodeBtn.addEventListener("click", () =>{
+    if(darkmode !== "active"){
+        enableDarkmode();
+    }
+    else{
+        disableDarkmode();
+    }
+});
 
 //Idea list (Load previous)
 const ideaList = JSON.parse(localStorage.getItem("ideas")) || [];
@@ -170,6 +194,8 @@ function clearIdeaEntry(){
     document.getElementById("ideaname-entry").value = "";
     document.getElementById("ideadesc-entry").value="";
 };
+
+
 
 
 

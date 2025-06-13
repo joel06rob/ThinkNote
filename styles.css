@@ -6,8 +6,15 @@
    --base-text-h:#c9c9c9;
    --secondary-color: #EEEEEE;
    --third-color: #f5f5f5;
-   
 
+}
+
+.darkmode{
+    --base-color: #1D2733;
+   --base-text: #EEEEEE;
+   --base-text-h:#263f5c;
+   --secondary-color: #23374e;
+   --third-color: #203247;
 }
 
 html{
