@@ -1,4 +1,9 @@
+//Darkmode
+let darkmode = localStorage.getItem("darkmode");
 
+if(darkmode === "active"){
+    document.documentElement.classList.add("darkmode");
+}
 
 let editing = false;
 

@@ -6,6 +6,7 @@
    --base-text-h:#c9c9c9;
    --secondary-color: #EEEEEE;
    --third-color: #f5f5f5;
+   --fourth-color: #dddada;
 
 }
 
@@ -15,6 +16,7 @@
    --base-text-h:#263f5c;
    --secondary-color: #23374e;
    --third-color: #203247;
+   --fourth-color: #33547a;
 }
 
 html{
@@ -40,6 +42,20 @@ main {
     
     
 }
+#btn-darkmode{
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000; 
+    background-color: var(--third-color);
+    color: var(--base-text);
+    border: none;
+    padding: 5px 8px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
 
 .idea-container {
     display: flex;
@@ -58,6 +74,7 @@ main {
     background-color: var(--secondary-color);
     border-radius: 10px;
     padding: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     
 }
 
@@ -161,9 +178,12 @@ main {
     border-radius: 10px;
     max-width: 100%;
     overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .idea-item:hover{
     background-color: var(--base-text-h);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 .idea-li-left{
     display: flex;
@@ -249,6 +269,7 @@ main {
 #back-button svg:hover{
     fill: #424649;
 }
+
 .detail-container{
     background-color: var(--secondary-color);
     border-radius: 10px;
@@ -261,38 +282,75 @@ main {
     padding-right: 1rem;
     padding-bottom: 1rem;
 }
+.detail-subtitle{
+    color: var(--base-text);
+}
 .row1{
     display: flex;
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
+    color: var(--base-text);
 }
 #detailed-desc{
     font-family: 'Instrument Sans', 'sans-serif';
+    background-color: var(--third-color);
+    border-width: 1px;
+    border-radius: 5px;
 }
 .row2{
     display: flex;
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
+    color: var(--base-text);
 }
 .row3{
     display: flex;
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
+    color: var(--base-text);
 }.row4{
     display: flex;
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
+    color: var(--base-text);
+}
+#btn-edit{
+    background-color: var(--fourth-color);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+#btn-edit svg{
+    fill: var(--base-text);
 }
 #btn-generate-prompt{
     display: flex;
     align-items: center;
+    color: var(--base-text);
+    background-color: var(--fourth-color);
+    border:none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+#btn-generate-prompt :hover{
+    cursor: pointer;
+    
+}
+#btn-generate-prompt svg{
+    fill: var(--base-text);
 }
 #btn-save{
     display: none;
+    background-color: var(--fourth-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--base-text);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
 }
 .detailed-type-project{
     display: flex;
@@ -302,6 +360,9 @@ main {
 
 #detailed-type-select{
     display: none;
+    background-color: var(--third-color);
+    border-width: 1px;
+    border-radius: 5px;
 }
 #detailed-type{
     margin: 0;
@@ -318,12 +379,15 @@ main {
     display: none;
     border: none;
     padding: 0;
+    background-color: var(--secondary-color);
 }
 #add-ts svg{
     fill: var(--base-text);
 }
 #add-ts-select{
     display: none;
+    background-color: var(--secondary-color);
+    color: var(--base-text);
 }
 #detailed-ts{
     display: flex;
@@ -367,7 +431,9 @@ main {
 }
 #duration-input{
     max-width: 2.5rem;
-    
+    background-color: var(--third-color);
+    border-width: 1px;
+    border-radius: 5px;
 }
 #detailed-dur{
     margin: 0;
