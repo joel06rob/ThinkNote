@@ -22,6 +22,7 @@
 html{
     background-color: var(--base-color);
     font-family: 'Instrument Sans', 'sans-serif';
+    font-size: 18px;
 }
 
 
@@ -61,8 +62,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 600px;
-    max-width: 1000px;
+    min-width:1000px;
+    max-width: 1500px;
     gap: 0.5rem;
     
 }
@@ -71,6 +72,7 @@ main {
     justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
+    min-width: 1000px;
     background-color: var(--secondary-color);
     border-radius: 10px;
     padding: 16px;
@@ -79,11 +81,13 @@ main {
 }
 
 
+
 .tn-title{
     font-family: 'Instrument Sans', 'sans-serif';
     text-align: center;
     color: var(--base-text);
     margin: 0;
+    font-size: 2.5rem;
 }
 .tn-subtitle{
     font-family: 'Instrument Sans', 'sans-serif';
@@ -95,10 +99,11 @@ main {
     gap: 0.1rem;
 }
 .ideaentry-inputs input{
-    height: 30px;
+    height: 38px;
+    font-size: 1rem;
 }
 #ideadesc-entry{
-    width: 300px;
+    width: 700px;
 }
 
 
@@ -112,13 +117,13 @@ main {
     align-items: center;
     justify-content: center;
     cursor: pointer;   
-    width: 48px;
-    height: 36px;
+    width: 56px;
+    height: 42px;
     transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 .ideaentry-delete svg{
-    width: 24px;
-    width: 24px;
+    width: 28px;
+    width: 28px;
     pointer-events: none;
 }
 .ideaentry-delete:hover{
@@ -137,13 +142,13 @@ main {
     align-items: center;
     justify-content: center;
     cursor: pointer;   
-    width: 48px;
-    height: 36px;
+    width: 56px;
+    height: 42px;
     transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 .ideaentry-add svg{
-    width: 24px;
-    width: 24px;
+    width: 28px;
+    width: 28px;
     pointer-events: none;
 }
 .ideaentry-add:hover{
@@ -164,7 +169,7 @@ main {
     width: 100%;
 }
 .idea-item{
-    
+    font-size: 1.4rem;
     display: flex;
     justify-content: space-between;
     background-color: var(--third-color);
@@ -192,13 +197,13 @@ main {
     
 }
 .idea-li-left-desc{
-    max-width: 350px;
+    max-width: 600px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
 .idea-li-left-name {
-    max-width: 100px;
+    max-width: 250px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -216,24 +221,28 @@ main {
     color: #585454;
     border-radius: 15px;
     border-color: #424242;
+    font-size: 1rem;
 }
 .status-select-interested{
     background-color: #F0E8AC;
     color: #D08700;
     border-radius: 15px;
     border-color: #ffbd43;
+    font-size: 1rem;
 }
 .status-select-developing{
     background-color: #A7CBDD;
     color: #0084FF;
     border-radius: 15px;
     border-color: #2897ff;
+    font-size: 1rem;
 }
 .status-select-completed{
     background-color: #A0E288;
     color: #0A8812;
     border-radius: 15px;
     border-color: #36aa00;
+    font-size: 1rem;
 }
 
 .idea-delete-button{
@@ -249,9 +258,10 @@ main {
 /*idea page detailed view*/
 .detail-container-outer{
     display: flex;
-    gap: 489px;
+    gap: 680px;
     max-height: 40px;
     align-items: center;
+    padding-bottom: 0.5rem;
 }
 #back-button{
     background: none;
@@ -262,6 +272,8 @@ main {
 }
 #back-button svg{
     fill: var(--base-text);
+    height: 32px;
+    width: 32px;
 }
 #back-button:hover{
     cursor: pointer;
@@ -274,16 +286,19 @@ main {
     background-color: var(--secondary-color);
     border-radius: 10px;
     display: flex;
+    padding: 1.5rem;
+    font-size: 1.1rem;
     flex-direction: column;
     gap: 0.3rem;
-    min-width: 600px;
-    max-width: 1000px;
+    min-width: 800px;
+    max-width: 1200px;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-bottom: 1rem;
 }
 .detail-subtitle{
     color: var(--base-text);
+    font-size: 1.5rem;
 }
 .row1{
     display: flex;
@@ -291,12 +306,14 @@ main {
     padding-left: 1rem;
     padding-right: 1rem;
     color: var(--base-text);
+    font-size: 1.1rem;
 }
 #detailed-desc{
     font-family: 'Instrument Sans', 'sans-serif';
     background-color: var(--third-color);
     border-width: 1px;
     border-radius: 5px;
+    font-size: 1.1rem;
 }
 .row2{
     display: flex;
@@ -304,6 +321,7 @@ main {
     padding-left: 1rem;
     padding-right: 1rem;
     color: var(--base-text);
+    font-size: 1.1rem;
 }
 .row3{
     display: flex;
@@ -311,21 +329,26 @@ main {
     padding-left: 1rem;
     padding-right: 1rem;
     color: var(--base-text);
+    font-size: 1.1rem;
 }.row4{
     display: flex;
-    justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
     color: var(--base-text);
+    font-size: 1.1rem;
 }
 #btn-edit{
     background-color: var(--fourth-color);
     border: none;
+    min-height: 50px;
+    min-width: 56px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 #btn-edit svg{
     fill: var(--base-text);
+    height: 32px;
+    width: 32px;
 }
 #btn-generate-prompt{
     display: flex;
@@ -335,6 +358,9 @@ main {
     border:none;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    min-width: 56px;
+    min-height: 50px;
+    font-size: 1.05rem;
 }
 #btn-generate-prompt :hover{
     cursor: pointer;
@@ -342,6 +368,8 @@ main {
 }
 #btn-generate-prompt svg{
     fill: var(--base-text);
+    height: 28px;
+    width: 28px;
 }
 #btn-save{
     display: none;
@@ -350,6 +378,9 @@ main {
     border-radius: 5px;
     color: var(--base-text);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 1.2rem;
+    min-width: 56px;
+    min-height: 48px;
 
 }
 .detailed-type-project{
@@ -363,6 +394,7 @@ main {
     background-color: var(--third-color);
     border-width: 1px;
     border-radius: 5px;
+    font-size: 0.9rem;
 }
 #detailed-type{
     margin: 0;
@@ -383,11 +415,14 @@ main {
 }
 #add-ts svg{
     fill: var(--base-text);
+    height: 32px;
+    width: 32px;
 }
 #add-ts-select{
     display: none;
     background-color: var(--secondary-color);
     color: var(--base-text);
+    font-size: 1rem;
 }
 #detailed-ts{
     display: flex;
@@ -404,7 +439,7 @@ main {
     background-color: var(--base-text);
     color: var(--base-color);
     font-weight: 600px;
-    font-size: 12px;
+    font-size: 16px;
     padding-left: 0.6rem;
     padding-right: 0.6rem;
     padding-top: 0;
@@ -430,10 +465,11 @@ main {
     align-items: end;
 }
 #duration-input{
-    max-width: 2.5rem;
+    max-width: 3rem;
     background-color: var(--third-color);
     border-width: 1px;
     border-radius: 5px;
+    font-size: 1rem;
 }
 #detailed-dur{
     margin: 0;
@@ -443,5 +479,5 @@ main {
 #p-generate-prompt{
     
     flex-wrap: wrap;
-    max-width: 600px;
+    max-width: 750px;
 }
